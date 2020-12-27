@@ -1,0 +1,17 @@
+#!/bin/sh
+
+session="haskell"
+tmux new-session -d -s $session
+
+tmux start-server
+tmux selectp -t 0
+tmux send-keys "vim" C-m
+tmux splitw -v -p 20
+
+tmux selectp -t 1
+tmux send-keys "h" C-m
+tmux selectp -t 0
+
+# tmux send-keys C-c C-c C-m C-h "1" C-m
+
+tmux attach-session -t $session 
